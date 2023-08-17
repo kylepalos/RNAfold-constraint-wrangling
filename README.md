@@ -22,3 +22,17 @@ This repository will walk through the steps to:
 2. Utilize an accessory file to specify the transcript positions that need to be changed from a '.' to an 'x'
 3. Interleave the RNA sequences with the structural constraints.
 
+
+# Very basic workflow
+
+Starting with a genome fasta file and a genome annotation file (gtf/gff), get transcript sequences with [gffread](https://github.com/gpertea/gffread)
+
+```
+gffread -w my_transcriptome.fa -g my_genome.fa my_annotation.gtf
+```
+
+Now you have transcripts, I'd recommend cleaning up the headers
+
+```
+cut -d" " -f1 my_transcriptome.fa > my_transcriptome_clean.fa
+```
