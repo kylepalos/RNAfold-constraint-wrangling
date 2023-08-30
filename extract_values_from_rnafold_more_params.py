@@ -40,7 +40,7 @@ with open(output_file_path, 'w') as outfile:
         # Extract the two numeric values from the sixth line
         
         # Use regex to capture decimal and scientific notation
-        sixth_values = re.findall(r'((?:\d+\.\d+)|(?:\d+\.\d+e-\d+))', lines[i + 5])
+        sixth_values = re.findall(r'(-?\d+(?:\.\d+)?(?:e-\d+)?)', lines[i + 5])
 
         # Write tab-delimited output
         output_line = (
