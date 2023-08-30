@@ -131,5 +131,5 @@ extract_values_from_rnafold_more_params.py rnafold_output.txt rnafold_output_cle
 will give:
 
 ```
->RNA1	-1237.70	-1305.45	-1057.18	559.82	1.81839	840.09
+>RNA1	-1237.70	-1305.45	-1057.18	559.82	1.81839e-48	840.09
 ```
