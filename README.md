@@ -93,3 +93,43 @@ You can use the final script in the repo:
 ```
 bash split_rnafold_output.sh rnafold_output.txt rnafold_output_clean.txt
 ```
+
+
+If you run RNAfold with the partition function, it provides additional values about the ensemble of structures
+
+The following is an example output:
+
+For example,
+
+```
+RNAfold -C -j -p -d2 --noLP input.fasta > output.txt
+```
+
+will produce the following output:
+
+```
+>RNA1
+GUAG
+.(). (-1237.70)
+.,., [-1305.45]
+..() {-1057.18 d=559.82}
+frequency of mfe structure in ensemble 1.81839e-48; ensemble diversity 840.09
+```
+
+In which the value in the first structure line (-1237.70) is the minimum free energy. 
+
+The second value [-1305.45] is the free energy of the ensemble (the collection of all structures the sequence **could** form)
+
+The third value {-1057.18 d=559.82} in the centroid free energy and its distance to the ensemble (this is kind of the median structure)
+
+The python script "extract_values_from_rnafold_more_params.py" scrapes all these relevant values into a nice tab separated output:
+
+```
+extract_values_from_rnafold_more_params.py rnafold_output.txt rnafold_output_clean.txt
+```
+
+will give:
+
+```
+>RNA1	-1237.70	-1305.45	-1057.18	559.82	1.81839	840.09
+```
